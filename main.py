@@ -1,16 +1,10 @@
-a = int(input("Введите первое число: "))
-b = int(input("Введите второе число: "))
+# генерация списка из 10 случайных цифр и вывод их
 
-print("Сумма:", a + b)
-print("Разность:", a - b)
-print("Произведение:", a * b)
-print("Среднее арифметическое:", (a + b) / 2)
-print("Среднее геометрическое:", (a * b) ** 0.5)
-print("Максимальное число:", max(a, b))
-print("Минимальное число:", min(a, b))
+import random
 
-if b == 0:
-    print("Ошибка! На ноль делить нельзя.")
-else:
-    print(f"Деление: {a / b}")
-    print("остаток:", a % b)
+random_numbers = []
+
+for i in range(10):
+	random_numbers.append(random.randint(0, 10))
+
+print(random_numbers)
