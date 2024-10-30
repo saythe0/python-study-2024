@@ -114,7 +114,7 @@ def fileFun():
 					f"Среднее арифметическое число: {statistics.mean(numbers)}")
 
 root = Tk()
-root.title("Лабораторная 6")
+root.title("Laboratory App")
 root.geometry("400x600")
 icon_path = os.path.join(os.path.dirname(__file__), "icon.ico")
 root.iconbitmap(icon_path)
