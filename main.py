@@ -11,6 +11,7 @@ from tkinter import *
 from tkinter import ttk
 import tkinter.filedialog
 import random
+import os
 
 def mathFun():
 	a = int(entry_a.get())
@@ -51,6 +52,8 @@ def classFun():
 
 def fileFun():
 	file_path = tkinter.filedialog.askopenfilename(title="Выберите файл", filetypes=[("Text files", "*.txt"), ("All files", "*.*")])
+	if not file_path:
+		result_var.set("Ошибка, вы не выбрали файл")
 	file = open(file_path, "w+")
 	# принимает только строку типа
 	file.write(' '.join(str(random.randint(0, 10)) for _ in range(10)))
@@ -63,6 +66,8 @@ def fileFun():
 root = Tk()
 root.title("Лабораторная 6")
 root.geometry("400x600")
+icon_path = os.path.join(os.path.dirname(__file__), "icon.ico")
+root.iconbitmap(icon_path)
 
 label_a = ttk.Label(root, text="Введите первое число:")
 label_a.pack(pady=5)
@@ -75,7 +80,7 @@ entry_b = ttk.Entry(root)
 entry_b.pack(pady=5)
 
 button = ttk.Button(root, text="Выполнить мат. функции", command=mathFun)
-button.pack(pady=10)
+button.pack(pady=5)
 
 button = ttk.Button(root, text="Выполнить функция рандома", command=randomFun)
 button.pack(pady=5)
