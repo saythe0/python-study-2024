@@ -1,6 +1,17 @@
-# создать функцию и вызвать её
+class Dog:
+	def __init__(self, name):
+		self.name = name
+	
+	def hello(self):
+		print(f'Привет пёс по кличке {self.name}')
 
-def dog():
-	print('gav gav gav')
+# создать второй класс и наследовать из первого
 
-dog()
+class Cat(Dog):
+	def hello_cat(self):
+		print(f'Привет котяра по кличке {self.name}')
+
+
+cat = Cat('Влад Фролов')
+cat.hello()
+cat.hello_cat()
