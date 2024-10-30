@@ -1,13 +1,16 @@
 import random
 import statistics
+import tkinter
+import tkinter.filedialog
 
-file = open("file.txt", "w+")
+# добавить выбор файла через проводник
+file_path = tkinter.filedialog.askopenfilename(title="Выберите файл", filetypes=[("Text files", "*.txt"), ("All files", "*.*")])
+
+
+file = open(file_path, "w+")
 
 for i in range(10):
 	file.write(f'{random.randint(0, 10)} ')
-
-
-# прочитать и вывести среднее из записанных
 
 file.seek(0)
 
