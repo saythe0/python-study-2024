@@ -1,13 +1,21 @@
-# создание файла и запись в него случайных чисел
 import random
+import statistics
 
-my_file = open("file.txt", "w+")
-
-random_numbers = []
+file = open("file.txt", "w+")
 
 for i in range(10):
-	my_file.write(f'{random.randint(0, 10)}')
-
-my_file.close()
+	file.write(f'{random.randint(0, 10)} ')
 
 
+# прочитать и вывести среднее из записанных
+
+file.seek(0)
+
+numbers = []
+for num in file.read().strip().split():
+	numbers.append(int(num))
+	
+avg = statistics.mean(numbers)
+print(numbers)
+print(avg)
+file.close()
