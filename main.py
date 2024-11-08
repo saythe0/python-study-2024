@@ -13,7 +13,7 @@ import tkinter.filedialog
 import random
 import os
 
-def mathFun(a: int, b: int):
+def mathFun(a: str, b: str):
 	"""
     Получает 2 переданных числа и выводит:
     - Сумму
@@ -26,6 +26,18 @@ def mathFun(a: int, b: int):
 
     Ответ сразу записывается в переменную
     """
+	try:
+		a = int(a)
+	except ValueError:
+		result_var.set("Ошибка! Введите первое число")
+		return
+	
+	try:
+		b = int(b)
+	except ValueError:
+		result_var.set("Ошибка! Введите второе число")
+		return
+
 	result_var.set(f"Сумма: {a + b}\n"
 					f"Разность: {a - b}\n"
 					f"Произведение: {a * b}\n"
@@ -130,7 +142,7 @@ entry_b = ttk.Entry(root)
 entry_b.pack(pady=5)
 
 # Что сразу функция не выполнялась нужно использовать lambda (из-за передачи параметров и скобок)
-button = ttk.Button(root, text="Выполнить мат. функции", command=lambda: mathFun(int(entry_a.get()), int(entry_b.get())))
+button = ttk.Button(root, text="Выполнить мат. функции", command=lambda: mathFun(entry_a.get(), entry_b.get()))
 button.pack(pady=5)
 
 button = ttk.Button(root, text="Выполнить функция рандома", command=randomFun)
